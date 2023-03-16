@@ -1,0 +1,29 @@
+{
+  "name": "ChatGPT",
+  "version": "0.1.0",
+  "description": "ChatGPT",
+  "permissions": ["storage", "tabs", "contextMenus"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "ChatGPT",
+    "default_popup": "index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css" : ["style.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [ "inject.html" ],
+      "matches": [ "<all_urls>" ]
+    }
+  ],
+  "manifest_version": 3,
+  "host_permissions": ["<all_urls>"]
+}
